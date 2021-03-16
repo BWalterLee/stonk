@@ -5,8 +5,8 @@ account: bwlee
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 3802619
-bundleId: 4354531
+bundleId: 4355267
 url: https://bwlee.shinyapps.io/stonk/
-when: 1615922324.03208
+when: 1615932047.25033
 asMultiple: FALSE
 asStatic: FALSE
