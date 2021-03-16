@@ -1,0 +1,12 @@
+name: stonk
+title: stonk
+username:
+account: bwlee
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3802619
+bundleId: 4354378
+url: https://bwlee.shinyapps.io/stonk/
+when: 1615920099.39004
+asMultiple: FALSE
+asStatic: FALSE
