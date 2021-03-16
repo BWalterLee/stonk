@@ -12,8 +12,11 @@ library(shiny)
 
 stonk_fun <- function(){
     
+    rando <- c("Tesla","Bed Bath and Beyond", "Microsoft", "Apple", "GM", "GE", "Gamestop", "AMC", 
+                   "Blackberry", "Exxon", "Bumble", "Petco", "Roblox", "My Wife", "The Great Depression",
+                   "Shopify", "Amazon", "Square", "Weed Stocks", "The New York Times")
+    
     lead_list <- c("Hey now, ",
-                   "Things are looking like, ",
                    "Where this thing is going, ",
                    "I haven't seen this in years, ",
                    "Takeaway: ",
@@ -22,7 +25,15 @@ stonk_fun <- function(){
                    "Really robust top line, ",
                    "Edge computing at the forefront, ",
                    "This would look better triple levered, ",
-                   "Don't tell my wife, ")
+                   "Don't tell my wife, but ",
+                   "Don't tell my husband, but ",
+                   "Couldn't be more sure, ",
+                   "Seriously undervalued, ",
+                   "Market's looking shaky, ",
+                   "I'm a little nervous, but ",
+                   "The Dot Com bubble, but ",
+                   paste("Looking at ",sample(rando),", ", sep = "") 
+                   )
     
     turn_list <- c("the fundamentals are just prime. ",
                    "where's the downside? ",
@@ -31,9 +42,15 @@ stonk_fun <- function(){
                    "you just can't let an opportunity like this slide by. ",
                    "it's just the WOW factor!!! ",
                    "why don't they bring it offshore? ",
-                   "cash cow ready to be milked and bottled. ",
-                   "tapping into digital finance interoperability. ",
-                   "but I'm into taking a risk on this one. "
+                   "it's a cash cow ready to be milked and bottled. ",
+                   "they're tapping into digital finance interoperability. ",
+                   "I'm into taking a risk on this one. ",
+                   "The Street just isn't in the know. ",
+                   "severely undervalued. ",
+                   "and the volatility is overrated.",
+                   paste("makes", sample(rando), "look like", sample(rando),"! "),
+                   "the Roaring 20's are back!",
+                   "it's 2008 all over again."
                    
     )
     
@@ -53,7 +70,16 @@ stonk_fun <- function(){
                    "Worse than a waiter on a Wednesday",
                    "Sweeter than the OJ on a Sunday morning.",
                    "I lean more rule of 50 than rule of 40.",
-                   "Driven by AI/ML/IoT/NLP tailwinds."
+                   "Driven by AI/ML/IoT/NLP tailwinds.",
+                   "Prime.",
+                   "Opposite of a dog.", 
+                   "Fundamentals aren't everything.",
+                   "It's a long play, for sure.",
+                   "Can't hop off this rollercoaster!",
+                   paste(sample(rando),"!", sep = ""),
+                    paste("I can't take another", sample(rando), "situation."),
+                   
+                   )
     )
     
     comment = paste(  
