@@ -63,7 +63,15 @@ stonk_fun <- function(){
                    paste("makes ", sample(rando), " look like ", sample(rando),"! ", sep = ""),
                    "the Roaring 20's are back! ",
                    "it's 2008 all over again. ",
-                   paste("been looking great since ",sample(times),". ", sep = "")
+                   paste("been looking great since ",sample(times),". ", sep = ""),
+                   "but I've seen better. ",
+                   "but I haven't seen better. ",
+                   "and it's looking up for the most part. ",
+                   "though I could be wrong. ",
+                   "and I've always been right. ",
+                   "but there could be something shady going on. ",
+                   "who even are these guys? "
+                   
                    
     )
     
