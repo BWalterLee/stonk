@@ -12,6 +12,8 @@ library(tidyverse)
 library(ggfittext)
 
 
+
+# Old Function, use only for UI testing
 stonk_fun <- function(){
     
     rando <- c("Tesla","Bed Bath and Beyond", "Microsoft", "Apple", "GM", "GE", "Gamestop", "AMC", 
@@ -157,10 +159,15 @@ ui <- fluidPage(tags$style("#stonktext {font-size:32px;
                display:bold; }"),
     
     # Application title
-    titlePanel("So u bought stonk. Tell us why. "),
+    titlePanel("Paper Randomizer"),
     
     # Sidebar with a slider input for number of bins 
     sidebarLayout(
+        
+        textInput("nouns","Nouns separated by ','")
+        
+        ,
+        
         actionButton("goButton", "PROFIT"),
         p("What did you know?")),
     
