@@ -4,10 +4,12 @@ library(shiny)
 library(tidyverse)
 library(ggfittext)
 
-
+# Function V 0.1 4/22/22
 paper_fun <- function(Noun_list,Author_list = c("Johnson", "Reginald", "Washington","Chambers")){
   
+  #
   nouns = Noun_list
+  
   points = c("we may never truly understand",
              "our vision may have been obscured",
              "our predecessors were incorrect",
@@ -27,7 +29,7 @@ paper_fun <- function(Noun_list,Author_list = c("Johnson", "Reginald", "Washingt
              paste("our reliance on ", sample(nouns,1)," may be affecting this", sep = ""),
              paste("we cannot simply ignore ",sample(nouns,1), sep = ""),
              paste(sample(nouns,1)," may rely more on ", sample(nouns,1)," than previously understood", sep = ""),
-             paste(sample(nouns,1)," could be intereacting with ", sample(nouns,1)," in unexpected ways", sep = "")
+             paste(sample(nouns,1)," could be interacting with ", sample(nouns,1)," in unexpected ways", sep = "")
              )
   
   authors = c(paste("Smith et al. ", sep = "", sample(1990:2020, 1)," "), 
@@ -214,7 +216,7 @@ paper_fun <- function(Noun_list,Author_list = c("Johnson", "Reginald", "Washingt
   return(paper)
   
 }
-paper_fun(Noun_list = c("Toads","Frogs","Salamanders", "Mushrooms", "Napkins", "viruses",
+paper_fun(Noun_list = c("toads","frogs","salamanders", "mushrooms", "napkins", "viruses",
                         "pests","slices","concepts","disease","studies","shells")
             )
 
