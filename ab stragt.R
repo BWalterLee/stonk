@@ -88,7 +88,7 @@ paper_fun <- function(Noun_list,Author_list = c("Johnson", "Reginald", "Washingt
   paste("As a rebuttal to this point, it could be argued that ", sample(points, 1),". ", sep = ""), 
   paste("There are ", sample(c("two ","three ","four ")), "main arguments that can be advanced to support ", sample(points, 1),". ", sep = ""), 
   paste("The underlying argument ", sample(c("in favor of ", "against ")), sample(nouns,1), " is that ", sample(points, 1),". ",sep = ""), 
-  paste(sample(authors,1)," argue ",sample(c("in favor of ", "against ")), sample(nouns,1), " as follows: ", sample(points, 1),". ", sep = " "))
+  paste(sample(authors,1)," argue ",sample(c("in favor of ", "against ")), sample(nouns,1), " as follows: ", sample(points, 1),". ", sep = ""))
   
   
   Claim <- c(
@@ -109,7 +109,7 @@ paper_fun <- function(Noun_list,Author_list = c("Johnson", "Reginald", "Washingt
   )
   
   Debate <- c(
-  paste(sample(authors,1),"has encouraged debate on ", sample(points,1), ". ",sep = ""),
+  paste(sample(authors,1),"has encouraged debate on how", sample(points,1), ". ",sep = ""),
   paste("There has been an inconclusive debate about whether ", sample(points,1),". ", sep = ""),
   paste("The question of whether ", sample(points,1), " has caused much debate in our profession over the years"),
   paste("Much of the current debate revolves around ", sample(points,1), sep = "")
@@ -151,7 +151,7 @@ paper_fun <- function(Noun_list,Author_list = c("Johnson", "Reginald", "Washingt
   Literature <- c(
   paste(sample(authors,1), "is prominent in the literature on how ", sample(points,1),". ", sep = ""),
   paste("There is a rapidly growing literature on ", sample(nouns,1), " which indicates that ", sample(points,1),". ", sep = ""),
-  paste("The literature shows no consensus on how", sample(points,1), " which means that ",sample(nouns,1), " could be the reason that ", sample(points,1), ". ", sep = ""),
+  paste("The literature shows no consensus on how ", sample(points,1), " which means that ",sample(nouns,1), " could be the reason that ", sample(points,1), ". ", sep = ""),
   paste("The current literature on ", sample(nouns,1)," abounds with examples of ", sample(points,1),". ", sep = "")
   )
   
