@@ -5,7 +5,7 @@ library(tidyverse)
 library(ggfittext)
 
 
-paper_fun <- function(Noun_list){
+paper_fun <- function(Noun_list,Author_list = c("Johnson", "Reginald", "Washington","Chambers")){
   
   nouns = Noun_list
   points = c("we may never truly understand",
@@ -30,8 +30,57 @@ paper_fun <- function(Noun_list){
              paste(sample(nouns,1)," could be intereacting with ", sample(nouns,1)," in unexpected ways", sep = "")
              )
   
-  authors = c(paste("Smith et al. ", sep = "", sample(1960:2020, 1)," "), 
-              paste("Jones et al. ", sep = "", sample(1960:2020, 1)," "))
+  authors = c(paste("Smith et al. ", sep = "", sample(1990:2020, 1)," "), 
+              paste("Jones et al. ", sep = "", sample(1990:2020, 1)," "),
+              paste("Jeff et al. ", sep = "", sample(1990:2020, 1)," "), 
+              paste("Hemsworth et al. ", sep = "", sample(1990:2020, 1)," "),
+              paste("Jafferty et al. ", sep = "", sample(1990:2020, 1)," "), 
+              paste("Wu et al. ", sep = "", sample(1990:2020, 1)," "),
+              paste("Hiroshimo et al. ", sep = "", sample(1990:2020, 1)," "), 
+              paste("Davis et al. ", sep = "", sample(1990:2020, 1)," "),
+              paste("Gavin et al. ", sep = "", sample(1990:2020, 1)," "), 
+              paste("Lee et al. ", sep = "", sample(1990:2020, 1)," "),
+              paste("Samuels et al. ", sep = "", sample(1990:2020, 1)," "), 
+              paste("Daniels et al. ", sep = "", sample(1990:2020, 1)," "),
+              paste("Margolin et al. ", sep = "", sample(1990:2020, 1)," "), 
+              paste("Neace et al. ", sep = "", sample(1990:2020, 1)," "),
+              paste("Ortiz et al. ", sep = "", sample(1990:2020, 1)," "), 
+              paste("McDermott et al. ", sep = "", sample(1990:2020, 1)," "),
+              paste("McGovern et al. ", sep = "", sample(1990:2020, 1)," "), 
+              paste("Li et al. ", sep = "", sample(1990:2020, 1)," "),
+              paste("Yu et al. ", sep = "", sample(1990:2020, 1)," "), 
+              paste("Gared et al. ", sep = "", sample(1990:2020, 1)," "),
+              paste("Smith et al. ", sep = "", sample(1990:2020, 1)," "), 
+              paste("Jones et al. ", sep = "", sample(1990:2020, 1)," "),
+              paste("Jeff et al. ", sep = "", sample(1990:2020, 1)," "), 
+              paste("Hemsworth et al. ", sep = "", sample(1990:2020, 1)," "),
+              paste("Jafferty et al. ", sep = "", sample(1990:2020, 1)," "), 
+              paste("Wu et al. ", sep = "", sample(1990:2020, 1)," "),
+              paste("Hiroshimo et al. ", sep = "", sample(1990:2020, 1)," "), 
+              paste("Davis et al. ", sep = "", sample(1990:2020, 1)," "),
+              paste("Gavin et al. ", sep = "", sample(1990:2020, 1)," "), 
+              paste("Lee et al. ", sep = "", sample(1990:2020, 1)," "),
+              paste("Samuels et al. ", sep = "", sample(1990:2020, 1)," "), 
+              paste("Daniels et al. ", sep = "", sample(1990:2020, 1)," "),
+              paste("Margolin et al. ", sep = "", sample(1990:2020, 1)," "), 
+              paste("Neace et al. ", sep = "", sample(1990:2020, 1)," "),
+              paste("Ortiz et al. ", sep = "", sample(1990:2020, 1)," "), 
+              paste("McDermott et al. ", sep = "", sample(1990:2020, 1)," "),
+              paste("McGovern et al. ", sep = "", sample(1990:2020, 1)," "), 
+              paste("Li et al. ", sep = "", sample(1990:2020, 1)," "),
+              paste("Yu et al. ", sep = "", sample(1990:2020, 1)," "), 
+              paste("Gared et al. ", sep = "", sample(1990:2020, 1)," "),
+              paste(sample(Author_list,1), " et al. ", sep = "", sample(1990:2020, 1)," "),
+              paste(sample(Author_list,1), " et al. ", sep = "", sample(1990:2020, 1)," "),
+              paste(sample(Author_list,1), " et al. ", sep = "", sample(1990:2020, 1)," "),
+              paste(sample(Author_list,1), " et al. ", sep = "", sample(1990:2020, 1)," "),
+              paste(sample(Author_list,1), " et al. ", sep = "", sample(1990:2020, 1)," "),
+              paste(sample(Author_list,1), " et al. ", sep = "", sample(1990:2020, 1)," "),
+              paste(sample(Author_list,1), " et al. ", sep = "", sample(1990:2020, 1)," "),
+              paste(sample(Author_list,1), " et al. ", sep = "", sample(1990:2020, 1)," "),
+              paste(sample(Author_list,1), " et al. ", sep = "", sample(1990:2020, 1)," "),
+              paste(sample(Author_list,1), " et al. ", sep = "", sample(1990:2020, 1)," ")
+              )
   
   Argue <- c(
   paste("Along similar lines, ", sample(authors, 1), "argues that ", sample(points, 1),". ", sep = ""),
@@ -55,12 +104,12 @@ paper_fun <- function(Noun_list){
   paste("The data appears to suggest that ", sample(points,1), sep = ""),
   paste("The data yielded by this study provide convincing evidence that ", sample(points,1),". ", sep = ""),
   paste("A closer look at the data indicates that ", sample(points,1),". ", sep = ""),
-  paste("The data generated by these experiments are reported in Table 1. ", sep = ""),
+  paste("The data generated by our experiments on ", sample(nouns,1), " are reported in Table 1. ", sep = ""),
   paste("The aim of this section is to generalize beyond the data and ", sample(points,1),". ", sep = "")
   )
   
   Debate <- c(
-  paste(sample(authors,1),"has encouraged debate on ", sample(points,1), sep = ""),
+  paste(sample(authors,1),"has encouraged debate on ", sample(points,1), ". ",sep = ""),
   paste("There has been an inconclusive debate about whether ", sample(points,1),". ", sep = ""),
   paste("The question of whether ", sample(points,1), " has caused much debate in our profession over the years"),
   paste("Much of the current debate revolves around ", sample(points,1), sep = "")
