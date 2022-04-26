@@ -4,7 +4,7 @@ library(shiny)
 library(tidyverse)
 library(ggfittext)
 
-# Main Function V 0.1 4/22/22
+# Main Function V 0.1 4/22/22 ####
 paper_fun <- function(Noun_list,Author_list = c("Johnson", "Reginald", "Washington","Chambers")){
   
   #
@@ -242,11 +242,70 @@ paper_fun(Noun_list = c("toads","frogs","salamanders", "mushrooms", "napkins", "
             )
 
 
-# 
+# Title Function ####
+title_fun <- function(Noun_list) {
+  
+  # Subject Format
+  first_half <- sample(c(
+    paste("Analysis of ", sample(nouns,1)),
+    paste("Elements of ", sample(nouns,1)),
+    paste("Modeling using ", sample(nouns,1)),
+    paste("Factors associated with ", sample(nouns,1)),
+    paste("The effects of ", sample(nouns,1)),
+    paste("Long-term changes in ",sample(nouns,1), ),
+    paste("Monitoring of ", sample(nouns,1)),
+    
+    paste("Overuse of", sample(nouns,1)),
+    paste("Influence of ", sample(nouns,1)),
+    paste("Contributions from ", sample(nouns,1)),
+    paste("The global spectrum of ", sample(nouns,1)),
+    paste("Estimating the effects of ", sample(nouns,1)),
+    paste("Evaluating variation in ", sample(nouns,1)),
+    
+    paste("Dynamic changes to ", sample(nouns,1)),
+    paste("Probing ", sample(nouns,1)),
+    paste("Intensive management of ", sample(nouns,1)),
+    paste("An integrated design and management strategy for ", sample(nouns,1)),
+    paste("Efficient, stable, and scalable ", sample(nouns,1)),
+    paste("Options for ", sample(nouns,1)),
+    
+    paste("Theraputic effects of ", sample(nouns,1)),
+    paste("A review of ", sample(nouns,1)),
+    paste("A meta-analysis of ", sample(nouns,1)),
+    paste("Revisiting ", sample(nouns,1)),
+    paste("Establishing ", sample(nouns,1)),
+    
+    paste("Removal of ", sample(nouns,1)),
+    paste("Addition of ", sample(nouns,1)),
+    paste("Questions regarding ", sample(nouns,1)),
+    paste("A hypothetical framework for ", sample(nouns,1)),
+    
+  ))
+  
+
+  
+  abstract_title <- sample(c(
+    paste(" contributes to variation in ", sample(nouns,1)),
+    paste(" and their ability to predict changes"),
+    paste(" can predict changes to ",sample(nouns,1)), 
+    paste(" can cause ", c("losses in ","gains in ", "differences in "), sample(nouns,1)),
+    paste(" as a source for"),
+    paste(),
+    paste(),
+    paste(),
+    paste(),
+    paste(),
+    paste(),
+    paste(),
+  ),1)
+  
+  
+  return(abstract_title)
+  
+}
 
 
-
-# Testing Function for input$nouns list transformation
+# Testing Function for input$nouns list transformation ####
 
 input <- data.frame(Noun_list = "urchins,genomics,STRs,intertidal zones,tide pools,anthropogenic stressors, BPAs,EDCs,plastic responses,developmental effects,sewage flows,population centers,urban environments")
 
