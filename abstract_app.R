@@ -1,20 +1,23 @@
-# Full Abstract App #
+# Full Abstract Randomization App
+
 
 library(shiny)
 library(tidyverse)
 library(ggfittext)
+library(shinythemes)
 
 # Paper Generator Function V 0.1 ####
+# Test Version, no external inputs
 paper_fun <- function(Noun_list,Author_list = c("Johnson", "Reginald", "Washington","Chambers")){
   
-  # app test, incorporate input$Noun_list next
-  nouns = Noun_list = c("toads","frogs","salamanders", "mushrooms", "napkins", "viruses",
-                        "pests","slices","concepts","disease","studies","shells")
+  #
+  nouns = as.list(unlist(strsplit(input$Noun_list,split = ",")))
+  #Author_list = strsplit(input$Author_list, split = ",")
   
   points = c("we may never truly understand",
              "our vision may have been obscured",
              "our predecessors were incorrect",
-             "it all depends",
+             "it all depends on the context",
              "nothing can truly affect this",
              "we may be on the right track",
              "our objectives were too ambitious",
@@ -23,6 +26,10 @@ paper_fun <- function(Noun_list,Author_list = c("Johnson", "Reginald", "Washingt
              "the technology is not yet advanced enough",
              "new developments will have to wait",
              "seeking alternate paths forward may be required",
+             paste("context dependency drives the interactions between ",sample(nouns,1)," and ",sample(nouns,1), ". ", sep = ""),
+             "approximations are no longer accurate enough",
+             paste("a ", sample(c("model","concept", "systems","structure"),1),"-based framework is necessary", sep = ""),
+             paste("we are seeing a shift in focus towards ",sample(nouns,1), sep = ""),
              paste("our understanding of ",sample(nouns,1)," is still limited", sep = ""),
              paste(sample(nouns,1)," may be the key", sep = ""),
              paste(sample(nouns,1)," could be the solution", sep = ""),
@@ -30,7 +37,10 @@ paper_fun <- function(Noun_list,Author_list = c("Johnson", "Reginald", "Washingt
              paste("our reliance on ", sample(nouns,1)," may be affecting this", sep = ""),
              paste("we cannot simply ignore ",sample(nouns,1), sep = ""),
              paste(sample(nouns,1)," may rely more on ", sample(nouns,1)," than previously understood", sep = ""),
-             paste(sample(nouns,1)," could be intereacting with ", sample(nouns,1)," in unexpected ways", sep = "")
+             paste(sample(nouns,1)," could be interacting with ", sample(nouns,1)," in unexpected ways", sep = ""),
+             paste("current theory on ", sample(nouns,1), " may be ", sample(c("under","over")),"stating their importance",sep = ""),
+             paste("this demands theory establishing a franework for measuring ",sample(nouns,1), sep = ""),
+             paste("inaccurate predictions were the basis for such falsehoods regarding", sample(nouns,1), sep = "")
   )
   
   authors = c(paste("Smith et al. ", sep = "", sample(1990:2020, 1)," "), 
@@ -85,6 +95,18 @@ paper_fun <- function(Noun_list,Author_list = c("Johnson", "Reginald", "Washingt
               paste(sample(Author_list,1), " et al. ", sep = "", sample(1990:2020, 1)," ")
   )
   
+  Opening <- c(
+    paste("The ", sample(c("recent", "abundance of", "lack of", "recognition of", "uncovering of"),1), " evidence surrounding ", sample(nouns, 1)," point to a greater need for studies examining why", sample(points,1),". ", sep = ""),
+    paste("For ",sample(c("the first time ever, ","generations, ", "millenia, ", "some researchers, ", "the time being, ",
+                          "several decades, "), 1), sample(nouns, 1)," are being utilized in ways that may tell us how ", sample(points,1),". ", sep = ""),
+    paste("There is ",sample(c("ample ", "growing ", "weak ", "limited ", "vastly overstated ", "understated "),1), "support for the claim that ", sample(points, 1),". ", sep = ""),
+    paste("The work of ", sample(authors,1), " was ", sample(c("revolutionary", "misguided", "fundamental", "ahead of its time", "critical", "controversial"),1),  " in its establishment that ", 
+          sample(nouns,1), " could contribute to our understanding of ", sample(nouns, 1),". ", sep = ""),
+    paste("Studies ", sample(c("surrounding ","examining ", "investigating "),1), sample(nouns,1), " have typically focused on their interplay with ", sample(nouns,1), " and the resulting effects on ", sample(nouns,1),". ", sep = ""),
+    paste("The establishment of ", sample(nouns,1), " as a model system for examining how ", sample(points,1), " has it's roots in historical studies on ", sample(nouns,1), ". ", sep = "")
+    
+  )
+  
   Argue <- c(
     paste("Along similar lines, ", sample(authors, 1), "argues that ", sample(points, 1),". ", sep = ""),
     paste("There seems to be no compelling reason to argue that ", sample(points, 1),". ", sep = ""), 
@@ -114,8 +136,8 @@ paper_fun <- function(Noun_list,Author_list = c("Johnson", "Reginald", "Washingt
   Debate <- c(
     paste(sample(authors,1),"has encouraged debate on how", sample(points,1), ". ",sep = ""),
     paste("There has been an inconclusive debate about whether ", sample(points,1),". ", sep = ""),
-    paste("The question of whether ", sample(points,1), " has caused much debate in our profession over the years"),
-    paste("Much of the current debate revolves around ", sample(points,1), sep = "")
+    paste("The question of whether ", sample(points,1), " has caused much debate in our profession over the years", sep =""),
+    paste("Much of the current debate revolves around how", sample(points,1), sep = "")
   )
   
   Discussion <- c(
@@ -124,7 +146,7 @@ paper_fun <- function(Noun_list,Author_list = c("Johnson", "Reginald", "Washingt
     paste("For the sake of discussion, I would like to argue that ",sample(points,1),". ", sep = ""),
     paste("In this study, the question under discussion is ", sample(points,1),". ", sep = ""),
     paste("In this paper, the discussion centers on ", sample(points,1),". ", sep = ""),
-    paste(sample(nouns,1),"lies at the heart of the discussion on ", sample(nouns,1),". ", sep = "")
+    paste("It is clear that ", sample(nouns,1)," lies at the heart of the discussion on ", sample(nouns,1),". ", sep = "")
   )
   
   Evidence <- c(
@@ -195,6 +217,7 @@ paper_fun <- function(Noun_list,Author_list = c("Johnson", "Reginald", "Washingt
   test_text <- paste(sample(View,1),sample(View,1),sample(View,1),sample(View,1),sample(View,1))
   
   paper = paste(  
+    sample(Opening,1),
     sample(Claim, 1),
     sample(Debate, 1),
     sample(Data, 1),
@@ -218,38 +241,52 @@ paper_fun <- function(Noun_list,Author_list = c("Johnson", "Reginald", "Washingt
   
 }
 
-# Define UI for application that draws a histogram
-ui <- fluidPage(tags$style("#stonktext {font-size:32px;
-               color:black;
-               display:bold; }"),
-                
-                # Application title
-                titlePanel("Paper Randomizer"),
-                
-                # Sidebar with a slider input for number of bins 
-                sidebarLayout(
-                  
-                  textInput("nouns","Nouns separated by ','")
-                  
-                  ,
-                  
-                  actionButton("goButton", "Straight to Nature"),
-                  p("Accepted no revisions")),
-                
-                
-                mainPanel(
-                  textOutput("stonktext"), width = 12)
-                
-                
-)
 
+
+# Define UI for application that draws a histogram
+ui <- fluidPage(
+  
+  # theme
+  theme = shinytheme("slate"),
+  
+  # Application title
+  titlePanel("Abstract Generator"),
+  
+  h5("At least 15 nouns recommended"),
+  # Sidebar with a slider input for number of bins 
+  sidebarLayout(
+    sidebarPanel( 
+      
+      
+      # Text input for study subjects 
+      textInput("Noun_list","Plural Nouns separated by ',', spaces between words are ok (e.g. 'snails,tide pools,urchins')"),
+      
+      
+     # # Text input for any specific authors
+     # textInput("Author_list","Authors names separated by ',' (not required)"),
+      
+      # Go Button to randomize text 
+      actionButton("goButton", "Straight to Nature"),
+      p("Accepted no revisions"),
+      
+    ),
+    mainPanel(
+      textOutput("paper"), width = 12)
+    
+    
+  )
+)
 
 # Define server logic required to draw a histogram
 server <- function(input, output) {
   
-  output$stonktext <- eventReactive(input$goButton, {
-    stonk_fun()
+  output$paper <- eventReactive(input$goButton, {
+    paper_fun(Noun_list = input$Noun_list)
   })
   
 }
+
+
+# Run the application 
+shinyApp(ui = ui, server = server)
 

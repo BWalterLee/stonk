@@ -1,3 +1,11 @@
+#
+# This is a Shiny web application. You can run the application by clicking
+# the 'Run App' button above.
+#
+# Find out more about building applications with Shiny here:
+#
+#    http://shiny.rstudio.com/
+#
 
 library(shiny)
 library(tidyverse)
@@ -233,30 +241,30 @@ ui <- fluidPage(
     
     # theme
     theme = shinytheme("slate"),
-                
+    
     # Application title
     titlePanel("Paper Randomizer"),
-                
+    
     # Sidebar with a slider input for number of bins 
     sidebarLayout(
         sidebarPanel( 
             
             # Text input for study subjects 
             textInput("Noun_list","Plural Nouns separated by ','"),
-             
+            
             
             # Text input for any specific authors
-            textInput("Author_list","Authors names separated by ',' (not required)",
+            textInput("Author_list","Authors names separated by ',' (not required)"),
             
             # Go Button to randomize text 
             actionButton("goButton", "Straight to Nature"),
-             p("Accepted no revisions"),
-         
-         ),
+            p("Accepted no revisions"),
+            
+        ),
         mainPanel(
             textOutput("paper"), width = 12)
-                
-                
+        
+        
     )
 )
 
@@ -269,4 +277,6 @@ server <- function(input, output) {
     
 }
 
+
+# Run the application 
 shinyApp(ui = ui, server = server)
